@@ -6,6 +6,9 @@ MinIO server在默认情况下会将所有配置信息存到 `${HOME}/.minio/con
 默认的配置目录是 `${HOME}/.minio`，你可以使用`--config-dir`命令行选项重写之。MinIO server在首次启动时会生成一个新的`config.json`，里面带有自动生成的访问凭据。 
 
 ```sh
+# 最新版的需要指定web console的端口号和api的端口号
+# 注意端口号需要双引号包括起来
+# minio server --console-address ":9001" --address ":9000" --config-dir /etc/minio /data
 minio server --config-dir /etc/minio /data
 ```
 
@@ -40,6 +43,10 @@ $ tree ~/.minio
 示例:
 
 ```sh
+# 注意最新版的已经修改了关键字
+# export MINIO_ROOT_USER=admin
+# export MINIO_ROOT_PASSWORD=password
+
 export MINIO_ACCESS_KEY=admin
 export MINIO_SECRET_KEY=password
 minio server /data
